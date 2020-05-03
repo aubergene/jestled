@@ -1,5 +1,5 @@
-const oculus = require('./server-listen-oculus')
-const wek = require('./server-listen-wek')
+const oculus = require('./src/server-listen-oculus')
+const wek = require('./src/server-listen-wek')
 
 console.log('here - server')
 
