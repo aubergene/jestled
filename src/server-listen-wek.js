@@ -1,36 +1,24 @@
 const OSC = require('osc-js')
-const { setLeftHandTarget, setRightHandTarget } = require('./leds')
+const { setLeftHand, setRightHand } = require('./leds')
 
 const options = {
     type: 'udp4',
     open: {
         // host: 'localhost',
         host: '0.0.0.0',
-        // port: 57121
-        port: 12000
+        port: 12000 // default out from Wekinator
     }
 }
 
 const plugin = new OSC.DatagramPlugin(options)
 const osc = new OSC({ plugin })
 
-let prevLeftHandX, prevRightHandX
-
 osc.on('/wek/outputs', msg => {
-    // console.log(msg)
-    let [leftHandX, rightHandX, blah3, blah4, blah5] = msg.args
+    console.log(msg)
+    let [lX, lSize, lHue, rX, rSize, rHue] = msg.args
 
-    leftHandX = leftHandX.toFixed(3)
-    if (prevLeftHandX !== leftHandX) {
-        setLeftHandTarget(leftHandX)
-        prevLeftHandX = leftHandX
-    }
-
-    rightHandX = rightHandX.toFixed(3)
-    if (prevRightHandX !== rightHandX) {
-        setRightHandTarget(rightHandX)
-        prevRightHandX = rightHandX
-    }
+    setLeftHand(lX, lSize, lHue)
+    setRightHand(rX, rSize, rHue)
 })
 
 osc.open()

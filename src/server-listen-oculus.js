@@ -9,8 +9,7 @@ const options = {
     open: {
         // host: 'localhost',
         host: '0.0.0.0',
-        // port: 57121
-        port: 39540
+        port: 39540 // default port for QuestOSCTransformSender
     },
     send: {
         // host: 'localhost',
@@ -30,6 +29,7 @@ const OSC_ADDRESS = '/VMC/Ext/Con/Pos'
 osc.on(OSC_ADDRESS, msg => {
     // console.log(msg)
 
+    // Strip the first agument which is the string of which controller
     if (msg.args[0] === 'OculusLeftController') {
         outMsg[0] = msg.args.slice(1)
     }
@@ -56,6 +56,7 @@ osc.on('open', () => {
     // console.log(osc.status())
 })
 
+// Write buffered data to CSV
 const headers = `timestamp lpx lpy lpz lrx lry lrz lrw rpx rpy rpz rrx rry rrz rrw`.split(' ')
 
 process.on('SIGINT', function () {

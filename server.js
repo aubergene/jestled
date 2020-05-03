@@ -1,5 +1,4 @@
-const oculus = require('./src/server-listen-oculus')
-const wek = require('./src/server-listen-wek')
+#!/usr/bin/env node
 
-console.log('here - server')
-
+require('./src/server-listen-oculus')
+require('./src/server-listen-wek')

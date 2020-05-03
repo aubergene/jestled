@@ -2,52 +2,37 @@ const MAX_V = 0.02
 const MAX_A = 0.004
 
 module.exports = class Point {
+    x = 0.5;
+    vx = 0;
+    ax = 0;
+    target = 0.5;
+    size = 1;
+    hue = 1;
+
     constructor(x) {
-        this._x = x
-        this.vx = 0
-        this.ax = 0
-        this._target = x
-        this._size = 0
-    }
-
-    get x() {
-        return this._x
-    }
-
-    get target() {
-        return this._target
-    }
-
-    set target(t) {
-        // console.log(this)
-        this._target = t
-    }
-
-    set size(d) {
-        this._size = d
+        this.x = x
     }
 
     update(delta) {
         // console.log(deltas, this)
-        // console.log(delta)
 
-        const dist = this._target - this._x
+        const dist = this.target - this.x
         // console.log(dist)
         this.ax = dist * 0.005 * delta
         this.ax = Math.min(MAX_A, this.ax)
         this.ax = Math.max(-MAX_A, this.ax)
 
         // this.ax = 0.001
-        // if (this._target < this._x) this.ax *= -1
+        // if (this.target < this.x) this.ax *= -1
         this.vx += this.ax
         this.vx = Math.min(MAX_V, this.vx)
         this.vx = Math.max(-MAX_V, this.vx)
 
-        // this._x += this.vx
-        this._x += this.ax
+        // this.x += this.vx
+        this.x += this.ax
 
-        this._x = Math.max(this._x, 0)
-        this._x = Math.min(this._x, 1)
+        this.x = Math.max(this.x, 0)
+        this.x = Math.min(this.x, 1)
     }
 
 
