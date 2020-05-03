@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<OSCInputGroup>
+  <oscMessage>/wek/inputs</oscMessage>
+  <numInputs>14</numInputs>
+  <groupName>Inputs</groupName>
+  <inputNames>
+    <string>lpx</string>
+    <string>lpy</string>
+    <string>lpz</string>
+    <string>lrx</string>
+    <string>lry</string>
+    <string>lrz</string>
+    <string>lrw</string>
+    <string>rpx</string>
+    <string>rpy</string>
+    <string>rpz</string>
+    <string>rrx</string>
+    <string>rry</string>
+    <string>rrz</string>
+    <string>rrw</string>
+  </inputNames>
+</OSCInputGroup>
