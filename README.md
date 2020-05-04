@@ -1,6 +1,8 @@
 # JESTLED
 
-Control a strip of WS2812 LEDs using Oculus Quest controllers
+Control a strip of WS2812 LEDs using Oculus Quest controllers.
+
+The software I wrote was all using Node JS and includes `server.js` and all the files in the `src` folder.
 
 ## Requirements
 
