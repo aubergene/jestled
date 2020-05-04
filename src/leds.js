@@ -40,12 +40,12 @@ function setPoint(p, { x, size, hue }) {
 
 function setLeftHand(x, size, hue) {
     setPoint(p1, { x, size, hue })
-    console.log('setLeftHand', p1)
+    // console.log('setLeftHand', p1)
 }
 
 function setRightHand(x, size, hue) {
     setPoint(p2, { x, size, hue })
-    console.log('setRightHand', p2)
+    // console.log('setRightHand', p2)
 }
 
 if (require.main === module) {

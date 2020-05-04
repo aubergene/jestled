@@ -14,7 +14,7 @@ const plugin = new OSC.DatagramPlugin(options)
 const osc = new OSC({ plugin })
 
 osc.on('/wek/outputs', msg => {
-    console.log(msg)
+    // console.log(msg)
     let [lX, lSize, lHue, rX, rSize, rHue] = msg.args
 
     setLeftHand(lX, lSize, lHue)
