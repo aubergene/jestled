@@ -20,7 +20,7 @@ const p2 = new Point(0.75)
 
 // I reverse the range just because my LEDs are arrange with 0 on right hand side due to location of the power supply
 const xScale = d3.scaleLinear().range([NUM_LEDS - 1, 0])
-const sizeScale = d3.scaleLinear().range([1, 42])
+const sizeScale = d3.scaleLinear().range([1, 42]).clamp(true)
 
 const colorScale1 = d3.interpolateCubehelix.gamma(GAMMA)("red", "green")
 const colorScale2 = d3.interpolateCubehelix.gamma(GAMMA)("green", "violet")
