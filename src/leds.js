@@ -11,7 +11,7 @@ const MAX_BRIGHTNESS = 255
 // const MAX_BRIGHTNESS = 50
 const GAMMA = 0.3
 
-const RENDER_TIMEOUT = 50
+const RENDER_TIMEOUT = 20
 
 const client = new net.Socket();
 
