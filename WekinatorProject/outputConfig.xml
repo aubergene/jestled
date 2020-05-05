@@ -9,8 +9,8 @@
       <min>0.0</min>
       <max>1.0</max>
       <outputType>REAL</outputType>
-      <limitType>SOFT</limitType>
-      <trainingDataLimitRestriction>DONT_ENFORCE_LIMITS</trainingDataLimitRestriction>
+      <limitType>HARD</limitType>
+      <trainingDataLimitRestriction>ENFORCE_LIMITS</trainingDataLimitRestriction>
       <trainingDataIntegerRestriction>DONT_ENFORCE_INTEGER</trainingDataIntegerRestriction>
     </wekimini.osc.OSCNumericOutput>
     <wekimini.osc.OSCNumericOutput>
@@ -18,26 +18,22 @@
       <min>0.0</min>
       <max>1.0</max>
       <outputType>REAL</outputType>
-      <limitType>SOFT</limitType>
-      <trainingDataLimitRestriction>DONT_ENFORCE_LIMITS</trainingDataLimitRestriction>
+      <limitType>HARD</limitType>
+      <trainingDataLimitRestriction>ENFORCE_LIMITS</trainingDataLimitRestriction>
       <trainingDataIntegerRestriction>DONT_ENFORCE_INTEGER</trainingDataIntegerRestriction>
     </wekimini.osc.OSCNumericOutput>
-    <wekimini.osc.OSCNumericOutput>
-      <name>left-hue</name>
-      <min>0.0</min>
-      <max>1.0</max>
-      <outputType>REAL</outputType>
-      <limitType>SOFT</limitType>
-      <trainingDataLimitRestriction>DONT_ENFORCE_LIMITS</trainingDataLimitRestriction>
-      <trainingDataIntegerRestriction>DONT_ENFORCE_INTEGER</trainingDataIntegerRestriction>
-    </wekimini.osc.OSCNumericOutput>
+    <wekimini.osc.OSCClassificationOutput>
+      <name>outputs-3</name>
+      <numClasses>5</numClasses>
+      <isSendingDistribution>false</isSendingDistribution>
+    </wekimini.osc.OSCClassificationOutput>
     <wekimini.osc.OSCNumericOutput>
       <name>right-x</name>
       <min>0.0</min>
       <max>1.0</max>
       <outputType>REAL</outputType>
-      <limitType>SOFT</limitType>
-      <trainingDataLimitRestriction>DONT_ENFORCE_LIMITS</trainingDataLimitRestriction>
+      <limitType>HARD</limitType>
+      <trainingDataLimitRestriction>ENFORCE_LIMITS</trainingDataLimitRestriction>
       <trainingDataIntegerRestriction>DONT_ENFORCE_INTEGER</trainingDataIntegerRestriction>
     </wekimini.osc.OSCNumericOutput>
     <wekimini.osc.OSCNumericOutput>
@@ -45,18 +41,14 @@
       <min>0.0</min>
       <max>1.0</max>
       <outputType>REAL</outputType>
-      <limitType>SOFT</limitType>
-      <trainingDataLimitRestriction>DONT_ENFORCE_LIMITS</trainingDataLimitRestriction>
+      <limitType>HARD</limitType>
+      <trainingDataLimitRestriction>ENFORCE_LIMITS</trainingDataLimitRestriction>
       <trainingDataIntegerRestriction>DONT_ENFORCE_INTEGER</trainingDataIntegerRestriction>
     </wekimini.osc.OSCNumericOutput>
-    <wekimini.osc.OSCNumericOutput>
-      <name>right-hue</name>
-      <min>0.0</min>
-      <max>1.0</max>
-      <outputType>REAL</outputType>
-      <limitType>SOFT</limitType>
-      <trainingDataLimitRestriction>DONT_ENFORCE_LIMITS</trainingDataLimitRestriction>
-      <trainingDataIntegerRestriction>DONT_ENFORCE_INTEGER</trainingDataIntegerRestriction>
-    </wekimini.osc.OSCNumericOutput>
+    <wekimini.osc.OSCClassificationOutput>
+      <name>outputs-6</name>
+      <numClasses>5</numClasses>
+      <isSendingDistribution>false</isSendingDistribution>
+    </wekimini.osc.OSCClassificationOutput>
   </outputs>
 </OSCOutputGroup>
