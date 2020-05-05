@@ -19,11 +19,12 @@ const p1 = new Point(0.25)
 const p2 = new Point(0.75)
 
 // I reverse the range just because my LEDs are arrange with 0 on right hand side due to location of the power supply
-const xScale = d3.scaleLinear().range([NUM_LEDS - 1, 0])
-const sizeScale = d3.scaleLinear().range([1, 42]).clamp(true)
+const xScale = d3.scaleLinear().rangeRound([NUM_LEDS - 1, 0]).clamp(true)
+const sizeScale = d3.scaleLinear().rangeRound([1, 42]).clamp(true)
 
-const colorScale1 = d3.interpolateCubehelix.gamma(GAMMA)("red", "green")
-const colorScale2 = d3.interpolateCubehelix.gamma(GAMMA)("green", "violet")
+// const colorScale1 = d3.interpolateCubehelix.gamma(GAMMA)("red", "green")
+// const colorScale2 = d3.interpolateCubehelix.gamma(GAMMA)("green", "violet")
+const hueScale = d3.scaleOrdinal().domain([2, 3, 4, 5]).range(["red", "orange", "green", "blue"])
 
 console.log(p1)
 
@@ -35,7 +36,9 @@ module.exports = {
 function setPoint(p, { x, size, hue }) {
     p.target = x
     p.size = size
-    p.hue = hue
+    if (hue > 1) {
+        p.hue = hue
+    }
 }
 
 function setLeftHand(x, size, hue) {
@@ -55,25 +58,19 @@ if (require.main === module) {
 }
 
 function testLoop() {
-    setLeftHand({
-        x: 0.5 + 0.5 * Math.random(),
-        size: Math.random(),
-        hue: Math.random(),
-        // x: 0.7,
-        // size: 0.5,
-        // hue: 1,
-    })
+    setLeftHand(
+        Math.random(),
+        Math.random(),
+        Math.random(),
+    )
 
-    setRightHand({
-        // x: 0.9,
-        // size: 0.5,
-        // hue: 1,
-        x: 0.5 + 0.5 * Math.random(),
-        size: Math.random(),
-        hue: Math.random(),
-    })
+    setRightHand(
+        Math.random(),
+        Math.random(),
+        Math.random(),
+    )
 
-    setTimeout(testLoop, 4000)
+    setTimeout(testLoop, 2000)
 }
 
 
@@ -123,9 +120,11 @@ function renderPoint(p, index) {
     const x = xScale(p.x)
     const size = sizeScale(p.size)
 
-    const colorScale = index ? colorScale2 : colorScale1
-    const color = colorScale(p.hue)
-    const background = index ? "green" : "red"
+    let [color, background] = [hueScale(p1.hue), hueScale(p2.hue)]
+
+    if (index) {
+        [color, background] = [background, color]
+    }
 
     const interpolator = d3.interpolateCubehelix.gamma(GAMMA)(color, background)
     const getColor = (i) => formatColor(interpolator(i / size))
@@ -139,10 +138,6 @@ function renderPoint(p, index) {
     }
 
     return out.join(";")
-}
-
-function randomColor() {
-    return ('000000' + (Math.random() * 0xFFFFFF << 0).toString(16)).slice(-6);
 }
 
 function renderConnectionPattern() {
